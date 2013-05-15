@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contact_info: MyString
+  status: MyString
+  client: MyString
+  price: MyString
+  work_type: MyString
+  description: MyText
+  responsible_user: MyString
+  date_of_last_contact: 2013-05-14 13:20:55
+  notes: MyText
+
+two:
+  contact_info: MyString
+  status: MyString
+  client: MyString
+  price: MyString
+  work_type: MyString
+  description: MyText
+  responsible_user: MyString
+  date_of_last_contact: 2013-05-14 13:20:55
+  notes: MyText
