@@ -1,9 +1,13 @@
 ProjInfo::Application.routes.draw do
+  resources :cis
+
+
   resources :posts
 
 
   resources :projects
 
+  
 
   get "home/index"
 

@@ -1,0 +1,27 @@
+<h1>Listing cis</h1>
+<%= link_to 'Back to Projects', projects_path%>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Email Address</th>
+    <th>Fax</th>
+  </tr>
+
+<% @cis.each do |ci| %>
+  <tr>
+    <td><%= ci.name %></td>
+    <td><%= ci.phone_number %></td>
+    <td><%= ci.email_address %></td>
+    <td><%= ci.fax %></td>
+    <td><%= link_to 'Show', ci %></td>
+    <td><%= link_to 'Edit', edit_ci_path(ci) %></td>
+    <td><%= link_to 'Destroy', ci, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ci', new_ci_path %>

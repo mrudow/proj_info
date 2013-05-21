@@ -13,15 +13,6 @@
   <div class="field">
     <%= f.label :project_name %><br />
     <%= f.text_field :project_name %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_info %><br />
-    <%= f.text_field :contact_info %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
   <div class="field">
     <%= f.label :client %><br />
     <%= f.text_field :client %>
@@ -29,11 +20,6 @@
   <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :work_type %><br />
-    <%= f.text_field :work_type %>
-  </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
@@ -45,6 +31,48 @@
   <div class="field">
     <%= f.label :notes %><br />
     <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :work_type %>
+    <%= f.select :work_type, options_for_select([['Development', 0], ['Marketing', 1], ['Consulting', 2], ['Design', 3] ]) %>
+  </div>
+
+  <br />
+  <%= f.fields_for :ci do |ci_f| %>
+    <h3>Contact Info</h3>
+    <div class="field">
+      <%= ci_f.label :name %><br />
+      <%= ci_f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= ci_f.label :phone_number %><br />
+      <%= ci_f.text_field :phone_number %>
+    </div>
+    <div class="field">
+      <%= ci_f.label :email_address %><br />
+      <%= ci_f.text_field :email_address %>
+    </div>
+    <div class="field">
+      <%= ci_f.label :fax %><br />
+      <%= ci_f.text_field :fax %>
+    </div>
+  <% end %>
+
+  <br />
+  <br />
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, options_for_select([['Lead', 0], ['Qualified', 1], ['Proposal', 2], ['Accepted', 3], ['Dead', 4]])%>
+  </div>
+  <div class="field">
+    <%= f.label :attachment %>
+    <%#=form_for @project do|f| %> 
+      <%#= f.file_field :attachment %>
+    <%# end %>
+    <%# f.file_field :avatar %>
+    <%#= form_for @project, :url => users_path, :html => { :multipart => true } do |form| %>
+      <%#= form.file_field :attachmnet %>
+    <%# end %>
   </div>
   <div class="actions">
     <%= f.submit %>

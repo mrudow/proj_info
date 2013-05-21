@@ -1,5 +1,11 @@
 <h1>New project</h1>
+<%#@project.create_ci()%>
 
 <%= render 'form' %>
 
+<%#= Ci.new(params[:ci])%>
 <%= link_to 'Back', projects_path %>
+
+<%#= form_for @project, :url => users_path, :html => { :multipart => true } do |form| %>
+  <%#= form.file_field :attachment %>
+<%# end %>

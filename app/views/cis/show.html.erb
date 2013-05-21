@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name of Contact:</b>
+  <%= @ci.name %>
+</p>
+
+<p>
+  <b>Phone Number:</b>
+  <%= @ci.phone_number %>
+</p>
+
+<p>
+  <b>Email Address:</b>
+  <%= @ci.email_address %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @ci.fax %>
+</p>
+
+
+<%= link_to 'Edit', edit_ci_path(@ci) %> |
+<%= link_to 'Contacts', cis_path %>
+<%= link_to 'Back to Project', @ci.project%>

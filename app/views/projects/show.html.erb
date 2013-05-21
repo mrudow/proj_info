@@ -2,17 +2,7 @@
 
 <p>
   <b>Project Name:</b>
-  <%= @project.Project_Name %>
-</p>
-
-<p>
-  <b>Contact info:</b>
-  <%= @project.contact_info %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @project.status %>
+  <%= @project.project_name %>
 </p>
 
 <p>
@@ -23,11 +13,6 @@
 <p>
   <b>Price:</b>
   <%= @project.price %>
-</p>
-
-<p>
-  <b>Work type:</b>
-  <%= @project.work_type %>
 </p>
 
 <p>
@@ -45,6 +30,39 @@
   <%= @project.notes %>
 </p>
 
+<p>
+  <b>Work Type:</b>
+  <%= Project::WORK_TYPES[@project.work_type] %>  
+</p>
+
+<p>
+  <b>Contact Info:</b>
+  <p></p>
+    <b2>Name:</b2>
+  <%= @project.ci.name %>
+  <p></p>
+    <b2>Phone Number:</b2>
+  <%= @project.ci.phone_number %>
+  <p></p>
+    <b2>Email Address:</b2>
+  <%= @project.ci.email_address %>
+  <p></p>
+    <b2>Fax:</b2>
+  <%= @project.ci.fax %>
+  <%#= link_to 'Contact Info', @project.ci%>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= Project::STATUS[@project.status] %>    
+</p>
+
+<p>
+  <b>Attachment:</b>
+  <%#= image_tag @project.attachment.url %>
+  <%#= image_tag @project.attachment.url(:medium) %>
+  <%#= image_tag @project.attachment.url(:thumb) %>
+</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

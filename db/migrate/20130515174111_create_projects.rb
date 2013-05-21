@@ -1,16 +1,18 @@
 class CreateProjects < ActiveRecord::Migration
-  def change
+  def up
     create_table :projects do |t|
-      t.string :contact_info
-      t.string :status
+      t.string :project_name
       t.string :client
       t.string :price
-      t.string :work_type
       t.text :description
       t.string :responsible_user
       t.text :notes
 
       t.timestamps
     end
+  end
+
+  def down
+    drop_table :projects
   end
 end
