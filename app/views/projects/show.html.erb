@@ -59,6 +59,8 @@
 
 <p>
   <b>Attachment:</b>
+  <%= link_to 'Attachment', @project.attachment.url%>
+  <p><%#= @project.attachment%></p>
   <%#= image_tag @project.attachment.url %>
   <%#= image_tag @project.attachment.url(:medium) %>
   <%#= image_tag @project.attachment.url(:thumb) %>

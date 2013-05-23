@@ -20,17 +20,17 @@ class ProjectsController < ApplicationController
       format.json { render json: @project }
     end
   end
-  #def upload
-    #uploaded_io = params[:project][:attachment]
-    #File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
-      #file.write(uploaded_io.read)
-    #end
-  #end
+  def upload
+    uploaded_io = params[:project][:attachment]
+    File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'w') do |file|
+      file.write(uploaded_io.read)
+    end
+  end
   # GET /projects/new
   # GET /projects/new.json
   def new
     @project = Project.new
-    @project.build_ci
+    #@project.build_ci
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,10 +45,17 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   # POST /projects.json
+  #def attachment
+    #t = Time.now.strftime("%Y%m%d%H%M%S")
+    #uploaded_io = params[:attachment]
+    #File.open(Rails.root.join('public', 'upload', uploaded_io.original_filename), 'wb') do |file|
+    #file.write(uploaded_io.read)
+    #end
+  #end
   def create
     @project = Project.new(params[:project])
-    @project.create_ci(params[:project][:ci_attributes])
-
+    #@project.create_ci(params[:project][:ci_attributes])
+    @project = Project.create( params[:project] )
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }

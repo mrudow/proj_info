@@ -5,14 +5,14 @@
     <th>Project Name</th>
     <th>Client</th>
     <th>Price</th>
-    <th>Description</th>
+    <!-- th>Description</th -->
     <th>Responsible User</th>
-    <th>Notes</th>
+    <!-- th>Notes</th -->
     <th>Last Update</th>
     <th>Work Type</th>
-    <th>Contact</th>
+    <!-- th>Contact</th -->
     <th>Status</th>
-    <th>Attachment</th>
+    <!-- th>Attachment</th-->
     <th></th>
     <th></th>
     <th></th>
@@ -23,14 +23,16 @@
     <td><%= project.project_name %></td>
     <td><%= project.client %></td>
     <td><%= project.price %></td>
-    <td><%= project.description %></td>
+    <!-- td><%= project.description %></td -->
     <td><%= project.responsible_user %></td>
-    <td><%= project.notes %></td>
+    <!-- td><%= project.notes %></td -->
     <td><%= project.updated_on %></td>
     <td><%= Project::WORK_TYPES[project.work_type] =%></td>
-    <td><%= project.ci.name%></td>
+    <!-- td><%#= project.ci.name%></td -->
     <%#= link_to 'Contact Info', project.ci%>
     <td><%= Project::STATUS[project.status] =%></td>
+    <!--td><%= link_to 'Attachment', project.attachment.url %></td -->
+    
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
     <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
