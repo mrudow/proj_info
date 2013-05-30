@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-    @paginated = @projects.order(sort_column + "" + sort_direction).paginate(:per_page=>100, :page => params[:page]) unless @projects.blank?
+    @projects = Project.order(sort_column + " " + sort_direction)
+    #@paginated = @projects.order(sort_column + "" + sort_direction).paginate(:per_page=>100, :page => params[:page]) unless @projects.blank?
     #@manufacturers ||Project.manufacturers
 
     respond_to do |format|
@@ -57,7 +58,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     @project.create_ci(params[:project][:ci_attributes])
-    @paginated =@projects.order(sort_column + " " + sort_direction).paginate(:per_page => 100, :page => params[:page]) unless @projects.blank?
+    #@paginated =@projects.order(sort_column + " " + sort_direction).paginate(:per_page => 100, :page => params[:page]) unless @projects.blank?
     #@manufacturers ||= Part.manufacturers
     respond_to do |format|
       if @project.save
@@ -98,11 +99,22 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  def sort_column
-    Project.column_names.include?(params[:sort]) ? params[:sort] : "project_number"
-  end
+  #def sort_column
+    #Project.column_names.include?(params[:sort]) ? params[:sort] : "project_number"
+  #end
   
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+  #def sort_direction
+    #%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  #end
 end
+
+private
+
+def sort_column
+  Project.column_name.include?(params[:sort]) ? params[:sort] : "updated_on"
+end
+
+def sort_direction
+  %w[asc desc].include?(params[:direction])? params[:direction]: "desc"
+end
+

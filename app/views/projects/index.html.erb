@@ -4,15 +4,15 @@
   <tr>
     <th><%= sortable "project_name", "Project Name" %></th>
     <!--th>Client</th -->
-    <th><%= sortable "price", "Price"%></th>
+    <th><%= sortable "price", "Price" %></th>
     <!-- th>Description</th -->
-    <th><%= sortable "responsible_user", "Responsible User"%></th>
+    <th><%= sortable "responsible_user", "Resonsible User" %></th>
     <!-- th>Notes</th -->
-    <th><%= sortable "updated_on", "Last Update"%></th>
-    <th><%= sortable "work_type", "Work Type"%></th>
-    <th><%= sortable "name", "Contact Name"%></th>
-    <th><%= sortable "email_address", "Contact Email"%></th>
-    <th><%= sortable "status", "Status"%></th>
+    <th><%= sortable "updated_on", "Last Updated" %></th>
+    <th><%= sortable "work_type", "Work Type" %></th>
+    <th><%= sortable "name", "Name" %></th>
+    <th><%= sortable "email_address", "Email Address" %></th>
+    <th><%= sortable "status", "Status" %></th>
     <!-- th>Attachment</th-->
     <th></th>
     <th></th>
@@ -31,9 +31,9 @@
     <td><%= Project::WORK_TYPES[project.work_type] =%></td>
     <td><%= project.ci.name %></td>
     <td><%= project.ci.email_address %></td>
-    <%#= link_to 'Contact Info', project.ci%>
+    <!--td><%#= link_to 'Contact Info', project.ci%></td -->
     <td><%= Project::STATUS[project.status] =%></td>
-    <!--td><%= link_to 'Attachment', project.attachment.url %></td -->
+    <!--td><%#= link_to 'Attachment', project.attachment.url %></td -->
     
     <td><%= link_to 'Show', project %></td>
     <td><%= link_to 'Edit', edit_project_path(project) %></td>
