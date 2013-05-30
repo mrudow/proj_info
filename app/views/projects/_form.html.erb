@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :work_type %>
-    <%= f.select :work_type, options_for_select([['Development', 0], ['Marketing', 1], ['Consulting', 2], ['Design', 3] ]) %>
+    <%= f.select :work_type, options_for_select([['Choose One', ''], ['Development', 0], ['Marketing', 1], ['Consulting', 2], ['Design', 3] ], selected = @project.work_type) %>
   </div>
 
   <br />
@@ -62,7 +62,7 @@
   <br />
   <div class="field">
     <%= f.label :status %>
-    <%= f.select :status, options_for_select([['Lead', 0], ['Qualified', 1], ['Proposal', 2], ['Accepted', 3], ['Dead', 4]])%>
+    <%= f.select :status, options_for_select([['Choose One', ''], ['Lead', 0], ['Qualified', 1], ['Proposal', 2], ['Accepted', 3], ['Dead', 4]], selected = @project.status)%>
   </div>
   <div class="field">
     <%= f.label :attachment %>

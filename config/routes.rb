@@ -1,5 +1,11 @@
 ProjInfo::Application.routes.draw do
-  resources :cis
+  #resources :cis
+
+  #resources :courses, :only => [ :show] do
+    #member do
+      #post :attachment
+    #end
+  #end
 
 
   resources :posts

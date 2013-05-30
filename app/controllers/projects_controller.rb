@@ -1,8 +1,10 @@
 class ProjectsController < ApplicationController
-  # GET /projects
+  helper_method :sort_column, :sort_direction
   # GET /projects.json
   def index
     @projects = Project.all
+    @paginated = @projects.order(sort_column + "" + sort_direction).paginate(:per_page=>100, :page => params[:page]) unless @projects.blank?
+    #@manufacturers ||Project.manufacturers
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +32,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
-    #@project.build_ci
+    @project.build_ci
 
     respond_to do |format|
       format.html # new.html.erb
@@ -54,8 +56,9 @@ class ProjectsController < ApplicationController
   #end
   def create
     @project = Project.new(params[:project])
-    #@project.create_ci(params[:project][:ci_attributes])
-    @project = Project.create( params[:project] )
+    @project.create_ci(params[:project][:ci_attributes])
+    @paginated =@projects.order(sort_column + " " + sort_direction).paginate(:per_page => 100, :page => params[:page]) unless @projects.blank?
+    #@manufacturers ||= Part.manufacturers
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
@@ -94,5 +97,12 @@ class ProjectsController < ApplicationController
       format.html { redirect_to projects_url }
       format.json { head :no_content }
     end
+  end
+  def sort_column
+    Project.column_names.include?(params[:sort]) ? params[:sort] : "project_number"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

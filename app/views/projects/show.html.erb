@@ -12,7 +12,7 @@
 
 <p>
   <b>Price:</b>
-  <%= @project.price %>
+  <%= number_to_currency(@project.price) %>
 </p>
 
 <p>
@@ -28,6 +28,11 @@
 <p>
   <b>Notes:</b>
   <%= @project.notes %>
+</p>
+
+<p>
+  <b>Last Update:</b>
+  <%= @project.updated_on.strftime("%m/%d/%Y") %>
 </p>
 
 <p>

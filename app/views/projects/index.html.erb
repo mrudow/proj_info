@@ -2,16 +2,17 @@
 
 <table>
   <tr>
-    <th>Project Name</th>
-    <th>Client</th>
-    <th>Price</th>
+    <th><%= sortable "project_name", "Project Name" %></th>
+    <!--th>Client</th -->
+    <th><%= sortable "price", "Price"%></th>
     <!-- th>Description</th -->
-    <th>Responsible User</th>
+    <th><%= sortable "responsible_user", "Responsible User"%></th>
     <!-- th>Notes</th -->
-    <th>Last Update</th>
-    <th>Work Type</th>
-    <!-- th>Contact</th -->
-    <th>Status</th>
+    <th><%= sortable "updated_on", "Last Update"%></th>
+    <th><%= sortable "work_type", "Work Type"%></th>
+    <th><%= sortable "name", "Contact Name"%></th>
+    <th><%= sortable "email_address", "Contact Email"%></th>
+    <th><%= sortable "status", "Status"%></th>
     <!-- th>Attachment</th-->
     <th></th>
     <th></th>
@@ -21,14 +22,15 @@
 <% @projects.each do |project| %>
   <tr>
     <td><%= project.project_name %></td>
-    <td><%= project.client %></td>
-    <td><%= project.price %></td>
+    <!-- td><%= project.client %></td -->
+    <td><%= number_to_currency(project.price) %></td>
     <!-- td><%= project.description %></td -->
     <td><%= project.responsible_user %></td>
     <!-- td><%= project.notes %></td -->
-    <td><%= project.updated_on %></td>
+    <td><%= project.updated_on.strftime("%m/%d/%Y") %></td>
     <td><%= Project::WORK_TYPES[project.work_type] =%></td>
-    <!-- td><%#= project.ci.name%></td -->
+    <td><%= project.ci.name %></td>
+    <td><%= project.ci.email_address %></td>
     <%#= link_to 'Contact Info', project.ci%>
     <td><%= Project::STATUS[project.status] =%></td>
     <!--td><%= link_to 'Attachment', project.attachment.url %></td -->
