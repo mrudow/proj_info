@@ -111,7 +111,7 @@ end
 private
 
 def sort_column
-  Project.column_name.include?(params[:sort]) ? params[:sort] : "updated_on"
+  Project.column_names.include?(params[:sort]) ? params[:sort] : "updated_on"
 end
 
 def sort_direction
